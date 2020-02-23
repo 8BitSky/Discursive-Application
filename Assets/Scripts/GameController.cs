@@ -13,7 +13,8 @@ public class GameController : MonoBehaviour {
     public TextMeshProUGUI strategyInfo;
     public GameObject strategyPanel;
     public GameObject strategyImage;
-    public GameObject ImageDisplayButton;
+    //public GameObject ImageDisplayButton;
+    public RectTransform strategyScrollView;
 
     public GameObject strategySelectionPanel;
 
@@ -81,9 +82,13 @@ public class GameController : MonoBehaviour {
         if (data.strategyInfo[0].strategySprite)
         {
             strategyImage.GetComponent<Image>().sprite = data.strategyInfo[0].strategySprite;
-            ImageDisplayButton.SetActive(true);
+            strategyScrollView.sizeDelta = new Vector2(strategyScrollView.sizeDelta.x,1200);
+            strategyImage.SetActive(true);
+        } else {
+            strategyImage.SetActive(false);
+            strategyScrollView.sizeDelta = new Vector2(strategyScrollView.sizeDelta.x, 1700);
         }
-        //Show Strategy Info Panel
+        //Show Strategy Info Panel - Delete?
         uIController.strategyPanelOpen = true;
         strategyPanel.SetActive(true);
     }
