@@ -811,7 +811,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Acquisition Starts
+  m_text: 'Acquisition Strategies
 
 '
   m_isRightToLeft: 0
@@ -883,7 +883,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 158253306}
-    characterCount: 19
+    characterCount: 23
     spriteCount: 0
     spaceCount: 2
     wordCount: 2
@@ -1364,8 +1364,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Discursive Strategies
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0c90333c3e66a284fa5663bfe2621439, type: 2}
-  m_sharedMaterial: {fileID: -4658635535299190468, guid: 0c90333c3e66a284fa5663bfe2621439,
+  m_fontAsset: {fileID: 11400000, guid: 280ccb4be8b91164e94431c856bc410f, type: 2}
+  m_sharedMaterial: {fileID: -3840487550940369282, guid: 280ccb4be8b91164e94431c856bc410f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1408,7 +1408,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
