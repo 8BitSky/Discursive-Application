@@ -10,7 +10,6 @@ public class UIController : MonoBehaviour
     public GameObject strategyPanel;
     public GameObject strategyImagePanel;
     public bool strategyPanelOpen = false;
-    public GameObject ImageDisplayButton;
 
     private bool imagePanelDisplayed = false;
 
@@ -24,26 +23,9 @@ public class UIController : MonoBehaviour
     { if (strategyPanelOpen)
         {
             StrategyPanelHide();
-            ImageDisplayButton.SetActive(false);
         } else {
             SceneManager.LoadScene("MenuScreen");
         }
-    }
-
-    public void StrategyImageDisplay()
-    {
-        strategyImagePanel.SetActive(!imagePanelDisplayed);
-        imagePanelDisplayed = !imagePanelDisplayed;
-    }
-
-    public void StrategyFavorite()
-    {
-
-    }
-
-    public void StrategyUnfavorite()
-    {
-
     }
 
 }
