@@ -2,12 +2,14 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 using System.IO;
+using UnityEngine.Networking;
 
 public class DataController : MonoBehaviour
 {
     private ConceptData[] allConceptData;
     public int conceptIndex;
 
+    private string dataAsJson;
 
     private PlayerProgress playerProgress;
 
@@ -31,20 +33,27 @@ public class DataController : MonoBehaviour
         return allConceptData[conceptIndex];
     }
 
-     private void LoadGameData()
+    private void LoadGameData()
     {
-        string filePath = Path.Combine(Application.streamingAssetsPath, gameDataFileName);
+      #if UNITY_ANDROID
+        StartCoroutine("androidLoad");
+      #endif
+    }
 
-        if (File.Exists(filePath))
-        {
-            string dataAsJson = File.ReadAllText(filePath);
-            GameData loadedData = JsonUtility.FromJson<GameData>(dataAsJson);
+    IEnumerator androidLoad()
+    {
+        
+        string testPath = Path.Combine(Application.streamingAssetsPath, gameDataFileName);
 
-            allConceptData = loadedData.allConceptData;
-
-        } else
-        {
-            Debug.LogError("Cannot Load Game Data!");
+        UnityWebRequest www = UnityWebRequest.Get(testPath);
+        yield return www.SendWebRequest();
+        if (www.isNetworkError || www.isHttpError) { 
+        Debug.Log(www.error);
+        } else {
+            dataAsJson = www.downloadHandler.text; 
         }
+
+        GameData loadedData = JsonUtility.FromJson<GameData>(dataAsJson);
+        allConceptData = loadedData.allConceptData;
     }
 }

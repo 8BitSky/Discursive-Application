@@ -21,8 +21,4 @@ public class StrategyInfoPane : MonoBehaviour {
         strategyText.text = strategyInfo.strategyText; 
     }
 
-    //public void HandleClick()
-    //{
-    //    gameController.AnswerButtonClicked(answerData.isCorrect);
-    //}
 }

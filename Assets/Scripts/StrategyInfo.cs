@@ -6,4 +6,5 @@ public class StrategyInfo
 {
     public string strategyText;
     public Sprite strategySprite;
+    public string strategySpriteName;
 }
