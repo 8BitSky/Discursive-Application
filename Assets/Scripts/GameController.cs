@@ -119,6 +119,7 @@ public class GameController : MonoBehaviour {
         }
 
         //Display Strategy Panel
+       
         uIController.strategyPanelOpen = true;
         strategyPanel.SetActive(true);
     }

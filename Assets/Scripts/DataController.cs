@@ -33,6 +33,16 @@ public class DataController : MonoBehaviour
         return allConceptData[conceptIndex];
     }
 
+    public string GetConceptModalInfoTitle(int index)
+    {
+        return allConceptData[index].conceptName;
+    }
+    public string GetConceptModalInfoDefinition(int index)
+    {
+        return allConceptData[index].conceptDefintion;
+    }
+
+
     private void LoadGameData()
     {
       #if UNITY_ANDROID

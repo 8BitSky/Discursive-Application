@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+
 
 public class LevelButton : MonoBehaviour {
 
@@ -12,11 +11,7 @@ public class LevelButton : MonoBehaviour {
 
     [SerializeField]
     private int conceptIndex;
-
-    //Going to use this to allow for "i" button to display card category description
-    //See LevelInfoClick()
-    //GameObject levelInfoPane;
-
+   
     private void Start()
     {
         dataController = FindObjectOfType<DataController>();
@@ -28,9 +23,5 @@ public class LevelButton : MonoBehaviour {
         SceneManager.LoadScene("StrategyScreen");
     }
 
-    //public void LevelInfoClick()
-    //{
-    //    levelInfoPane.SetActive(true);
-    //}
 
 }
