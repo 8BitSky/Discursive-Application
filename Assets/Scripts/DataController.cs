@@ -11,8 +11,6 @@ public class DataController : MonoBehaviour
 
     private string dataAsJson;
 
-    private PlayerProgress playerProgress;
-
     private string gameDataFileName = "data.json";
 
     // Use this for initialization
@@ -45,9 +43,13 @@ public class DataController : MonoBehaviour
 
     private void LoadGameData()
     {
-      #if UNITY_ANDROID
+    #if UNITY_ANDROID || UNITY_WEBGL
         StartCoroutine("androidLoad");
-      #endif
+    #endif
+    #if UNITY_IOS
+       iOSLoad();
+    #endif
+
     }
 
     IEnumerator androidLoad()
@@ -65,5 +67,14 @@ public class DataController : MonoBehaviour
 
         GameData loadedData = JsonUtility.FromJson<GameData>(dataAsJson);
         allConceptData = loadedData.allConceptData;
+    }
+
+    private void iOSLoad()
+    {
+        string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, gameDataFileName.ToString());
+        dataAsJson = System.IO.File.ReadAllText(filePath);
+        GameData loadedData = JsonUtility.FromJson<GameData>(dataAsJson);
+        allConceptData = loadedData.allConceptData;
+
     }
 }

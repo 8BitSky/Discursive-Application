@@ -108,7 +108,7 @@ public class GameController : MonoBehaviour {
                         StartCoroutine("LoadStrategyImage", file);
                     }
                 }
-            } else if (Application.platform == RuntimePlatform.Android) { 
+            } else if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WebGLPlayer ) { 
                 StartCoroutine("LoadStrategyImageAndroid", currentImageName);
             }
         StrategyImageDisplay();
